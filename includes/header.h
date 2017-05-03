@@ -26,7 +26,12 @@ typedef struct			s_list
 	void				*content;
 	size_t				content_size;
 	char				piece_identifier;
+	char				priority;
 	struct s_list		*next;
+	struct s_list		*prev;
+	int					x_pos;
+	int 				y_pos;
+	int					is_last_piece;
 }						tetri_list;
 
 typedef struct			some_struct
@@ -40,14 +45,14 @@ typedef struct			some_struct
 }						grid_struct;
 
 
-int		solve_plz(grid_struct *grid_thing, tetri_list *head, tetri_list *current);
+char		**solve_plz(grid_struct *grid_thing, tetri_list *current, tetri_list *head);
 /*
 **	file_io.c
 */
 int			valid_buffer_piece(char *str);
 char		*ft_strtrim_dot(char const *s);
 char		*input_storage_mod(char *buffer);
-tetri_list	*ft_lstnew(void const *content, size_t content_size);
+tetri_list	*ft_lstnew(void const *content, size_t content_size, tetri_list *prev);
 int 		file_io(tetri_list *tmp_list, char **argv);
 
 /*
@@ -105,6 +110,7 @@ void		*ft_memcpy(void *dst, const void *src, int n);
 int			ft_strcmp(const char *s1, const char *s2);
 char		*ft_strdup(const char *src);
 char		*ft_strcpy(char *dest, const char *src);
+void 		ft_putstr(char *str);
 
 
 /*
@@ -115,6 +121,7 @@ char		**grid_init(char **grid, int size);
 int 		grid_size(char **grid);
 int			grid_piece_inside(char **grid, char priority);
 void 		grid_print(char **grid);
-char		**grid_rm_piece(char **grid, char priority);
+int			grid_rm_piece(char **grid, char priority);
+int			grid_dot_count(char **grid);
 
 #endif

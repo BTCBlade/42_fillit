@@ -119,22 +119,56 @@ void		grid_print(char **grid)
 /*
 ** deletes a prioirty LETTER from 2d array grid
 */
-char		**grid_rm_piece(char **grid, char priority)
+int			grid_rm_piece(char **grid, char priority)
 {
 	int		i;
 	int		j;
+	int		counter;
 
 	i = 0;
+	counter = 0;
 	while (grid[i])
 	{
 		j = 0;
 		while (grid[i][j])
 		{
 			if (grid[i][j] == priority)
+			{
 				grid[i][j] = '.';
+				counter++;
+			}
 			j++;
 		}
 		i++;
 	}
-	return (grid);
+
+	if (counter == 4)
+		return (1);
+	else
+		return (0);
+}
+
+/*
+** checks to see how many '.' grid has
+*/
+int			grid_dot_count(char **grid)
+{
+	int		i;
+	int		j;
+	int		counter;
+
+	counter = 0;
+	i = 0;
+	while (grid[i])
+	{
+		j = 0;
+		while (grid[i][j])
+		{
+			if (grid[i][j] == '.')
+				counter++;;
+			j++;
+		}
+		i++;
+	}
+	return (counter);
 }

@@ -18,6 +18,8 @@
 
 int		piece_filling(grid_struct *grid_thing)
 {
+	// printf("PIECEFILLING\n");
+
 	if (grid_thing->piece_identifier == 'X')
 	{
 		write(2, "X", 1);

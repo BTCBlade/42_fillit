@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-tetri_list		*ft_lstnew(void const *content, size_t content_size)
+tetri_list		*ft_lstnew(void const *content, size_t content_size, tetri_list *prev)
 {
 	tetri_list		*node_ret;
 
@@ -33,5 +33,6 @@ tetri_list		*ft_lstnew(void const *content, size_t content_size)
 		node_ret->content_size = content_size;
 	}
 	node_ret->next = 0;
+	node_ret->prev = prev;
 	return (node_ret);
 }

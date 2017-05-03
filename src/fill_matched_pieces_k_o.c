@@ -36,6 +36,8 @@ int		fill_matched_k(grid_struct *grid_thing)
 				grid_thing->grid[i][j + 1] = grid_thing->priority;
 				grid_thing->grid[i][j + 2] = grid_thing->priority;
 				grid_thing->grid[i + 1][j + 2] = grid_thing->priority;
+				grid_thing->x_pos = j;
+				grid_thing->y_pos = i;
 				return (1);
 			}
 			j++;
@@ -64,12 +66,14 @@ int		fill_matched_l(grid_struct *grid_thing)
 		while (grid_thing->grid[i][j] && (grid_thing->grid_size - j) >= 2)
 		{
 			if (grid_thing->grid[i][j] == '.' && grid_thing->grid[i + 1][j] == '.' &&
-				grid_thing->grid[i + 2][j] == '.' && grid_thing->grid[i + 2][j + 1])
+				grid_thing->grid[i + 2][j] == '.' && grid_thing->grid[i + 2][j + 1] == '.')
 			{
 				grid_thing->grid[i][j] = grid_thing->priority;
 				grid_thing->grid[i + 1][j] = grid_thing->priority;
 				grid_thing->grid[i + 2][j] = grid_thing->priority;
 				grid_thing->grid[i + 2][j + 1] = grid_thing->priority;
+				grid_thing->x_pos = j;
+				grid_thing->y_pos = i;
 				return (1);
 			}
 			j++;
@@ -105,6 +109,8 @@ int		fill_matched_m(grid_struct *grid_thing)
 				grid_thing->grid[i + 1][j] = grid_thing->priority;
 				grid_thing->grid[i + 1][j + 1] = grid_thing->priority;
 				grid_thing->grid[i + 1][j + 2] = grid_thing->priority;
+				grid_thing->x_pos = j;
+				grid_thing->y_pos = i;
 				return (1);
 			}
 			j++;
@@ -139,6 +145,8 @@ int		fill_matched_n(grid_struct *grid_thing)
 				grid_thing->grid[i][j + 1] = grid_thing->priority;
 				grid_thing->grid[i + 1][j + 1] = grid_thing->priority;
 				grid_thing->grid[i + 2][j + 1] = grid_thing->priority;
+				grid_thing->x_pos = j;
+				grid_thing->y_pos = i;
 				return (1);
 			}
 			j++;
@@ -173,6 +181,8 @@ int		fill_matched_o(grid_struct *grid_thing)
 				grid_thing->grid[i][j + 1] = grid_thing->priority;
 				grid_thing->grid[i][j + 2] = grid_thing->priority;
 				grid_thing->grid[i + 1][j] = grid_thing->priority;
+				grid_thing->x_pos = j;
+				grid_thing->y_pos = i;
 				return (1);
 			}
 			j++;

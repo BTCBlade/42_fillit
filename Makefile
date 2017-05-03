@@ -21,7 +21,7 @@ SRC_FILES = $(addprefix $(SRC), $(FILE))
 OBJ = $(SRC_FILES:c=o)
 
 $(NAME):
-		gcc $(SRC_FILES) libft/libft.a -I includes
+		gcc $(SRC_FILES) libft/libft.a -I includes -o fillit
 
 all: $(NAME)
 
