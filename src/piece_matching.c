@@ -16,43 +16,43 @@
 **reads modified buffer string and matches to piece_identifier
 */
 
-char		piece_matching_1(char *piece)
+char	piece_matching_1(char *piece)
 {
 	if (ft_strcmp(piece, "#....#....#....#") == 0)
-			return ('a');
+		return ('a');
 	if (ft_strcmp(piece, "####") == 0)
-			return ('b');
+		return ('b');
 	if (ft_strcmp(piece, "##...##") == 0)
-			return ('c');
+		return ('c');
 	if (ft_strcmp(piece, "###...#") == 0)
-			return ('d');
+		return ('d');
 	if (ft_strcmp(piece, "#....##...#") == 0)
-			return ('e');
+		return ('e');
 	if (ft_strcmp(piece, "#...###") == 0)
-			return ('f');
+		return ('f');
 	if (ft_strcmp(piece, "#...##....#") == 0)
-			return ('g');
+		return ('g');
 	return ('x');
 }
 
 char	piece_matching_2(char *piece)
 {
 	if (ft_strcmp(piece, "##...#....#") == 0)
-			return ('h');
+		return ('h');
 	if (ft_strcmp(piece, "#....###") == 0)
-			return ('i');
+		return ('i');
 	if (ft_strcmp(piece, "#....#...##") == 0)
-			return ('j');
+		return ('j');
 	if (ft_strcmp(piece, "###....#") == 0)
-			return ('k');
+		return ('k');
 	if (ft_strcmp(piece, "#....#....##") == 0)
-			return ('l');
+		return ('l');
 	if (ft_strcmp(piece, "#..###") == 0)
-			return ('m');
+		return ('m');
 	if (ft_strcmp(piece, "##....#....#") == 0)
-			return ('n');
+		return ('n');
 	if (ft_strcmp(piece, "###..#") == 0)
-			return ('o');
+		return ('o');
 	return ('x');
 }
 
@@ -72,10 +72,10 @@ char	piece_matching_3(char *piece)
 char	piece_matching(char *piece)
 {
 	if (piece_matching_1(piece) != 'x')
-		return piece_matching_1(piece);
+		return (piece_matching_1(piece));
 	if (piece_matching_2(piece) != 'x')
-		return piece_matching_2(piece);
+		return (piece_matching_2(piece));
 	if (piece_matching_3(piece) != 'x')
-		return piece_matching_3(piece);
+		return (piece_matching_3(piece));
 	return ('X');
 }

@@ -10,25 +10,42 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fillit
-CFLAGS = gcc -Wall -Wextra -Werror -c
+NAME =	fillit
+CFLAGS = -Wall -Wextra -Werror -c -Iincludes
+CC = 	gcc
 
-FILE = *.c
-SRC = ./src/
-SRC_FILES = $(addprefix $(SRC), $(FILE))
+FILE = 	back_track_helper.c\
+		back_track.c\
+		extra_one.c\
+		extra_two.c\
+		file_io.c\
+		fill_matched_pieces_a_e.c\
+		fill_matched_pieces_f_j.c\
+		fill_matched_pieces_k_o.c\
+		fill_matched_pieces_p_s.c\
+		grid_file.c\
+		grid_struct.c\
+		main.c\
+		piece_filling.c\
+		piece_matching.c\
 
+OBJ = 	$(FILE:.c=.o)
+SRC_DIR = 	./src/
+SRC_FILES = $(addprefix $(SRC_DIR),$(FILE))
 
-OBJ = $(SRC_FILES:c=o)
-
-$(NAME):
-		gcc $(SRC_FILES) libft/libft.a -I includes -o fillit
+$(NAME): ./includes/header.h $(SRC_FILES)
+		@echo "\033[32m["$(NAME)"] compiling "$(NAME)"...\033[0m"
+		@$(CC) $(CFLAGS) $(SRC_FILES)
+		@$(CC) $(OBJ) -o fillit
 
 all: $(NAME)
 
 clean:
-		rm -f *.o
+		@echo "\033[31m["$(NAME)"] deleting .o files ...\033[0m"
+		@rm -f $(OBJ)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+		@echo "\033[31m["$(NAME)"] deleting binary "$(NAME)"...\033[0m"
+		@rm -f $(NAME)
 
-re: fclean all
+re: 	fclean all

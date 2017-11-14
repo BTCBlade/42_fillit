@@ -15,6 +15,7 @@
 /*
 ** mallocs and returns a 2d array grid
 */
+
 char		**grid_create(int size)
 {
 	char	**ret;
@@ -33,6 +34,7 @@ char		**grid_create(int size)
 /*
 **	puts '.' in all the slots of a defined size 2d array grid
 */
+
 char		**grid_init(char **grid, int size)
 {
 	int		i;
@@ -55,25 +57,9 @@ char		**grid_init(char **grid, int size)
 }
 
 /*
-**	returns the size of a square grid
-*/
-int 		grid_size(char **grid)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	while (grid[i][j])
-	{
-		j++;
-	}
-	return (j);
-}
-
-/*
 **	checks if a priority LETTER is inside of the grid
 */
+
 int			grid_piece_inside(char **grid1, char priority)
 {
 	int		i;
@@ -97,6 +83,7 @@ int			grid_piece_inside(char **grid1, char priority)
 /*
 ** prints a 2d char array grid
 */
+
 void		grid_print(char **grid)
 {
 	int		i;
@@ -119,6 +106,7 @@ void		grid_print(char **grid)
 /*
 ** deletes a prioirty LETTER from 2d array grid
 */
+
 int			grid_rm_piece(char **grid, char priority)
 {
 	int		i;
@@ -141,34 +129,8 @@ int			grid_rm_piece(char **grid, char priority)
 		}
 		i++;
 	}
-
 	if (counter == 4)
 		return (1);
 	else
 		return (0);
-}
-
-/*
-** checks to see how many '.' grid has
-*/
-int			grid_dot_count(char **grid)
-{
-	int		i;
-	int		j;
-	int		counter;
-
-	counter = 0;
-	i = 0;
-	while (grid[i])
-	{
-		j = 0;
-		while (grid[i][j])
-		{
-			if (grid[i][j] == '.')
-				counter++;;
-			j++;
-		}
-		i++;
-	}
-	return (counter);
 }

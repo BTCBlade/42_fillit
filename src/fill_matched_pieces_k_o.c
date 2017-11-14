@@ -12,32 +12,26 @@
 
 #include "header.h"
 
-int		fill_matched_k(grid_struct *grid_thing)
+int		fill_matched_k(t_x *ge)
 {
 	int		i;
 	int		j;
-	int		first_iteration_flag;
 
-	i = grid_thing->y_pos;
-	j = grid_thing->x_pos;
-	first_iteration_flag = 1;
-	while (grid_thing->grid[i] && (grid_thing->grid_size - i) >= 2)
+	i = ge->y_pos;
+	j = ge->x_pos;
+	while (ge->grid[i] && (ge->grid_size - i) >= 2)
 	{
-		if (first_iteration_flag)
-			first_iteration_flag = 0;
-		else
-			j = 0;
-		while (grid_thing->grid[i][j] && (grid_thing->grid_size - j) >= 3)
+		while (ge->grid[i][j] && (ge->grid_size - j) >= 3)
 		{
-			if (grid_thing->grid[i][j] == '.' && grid_thing->grid[i][j + 1] == '.' &&
-				grid_thing->grid[i][j + 2] == '.' && grid_thing->grid[i + 1][j + 2] == '.')
+			if (ge->grid[i][j] == '.' && ge->grid[i][j + 1] == '.' &&
+				ge->grid[i][j + 2] == '.' && ge->grid[i + 1][j + 2] == '.')
 			{
-				grid_thing->grid[i][j] = grid_thing->priority;
-				grid_thing->grid[i][j + 1] = grid_thing->priority;
-				grid_thing->grid[i][j + 2] = grid_thing->priority;
-				grid_thing->grid[i + 1][j + 2] = grid_thing->priority;
-				grid_thing->x_pos = j;
-				grid_thing->y_pos = i;
+				ge->grid[i][j] = ge->priority;
+				ge->grid[i][j + 1] = ge->priority;
+				ge->grid[i][j + 2] = ge->priority;
+				ge->grid[i + 1][j + 2] = ge->priority;
+				ge->x_pos = j;
+				ge->y_pos = i;
 				return (1);
 			}
 			j++;
@@ -47,33 +41,26 @@ int		fill_matched_k(grid_struct *grid_thing)
 	return (0);
 }
 
-int		fill_matched_l(grid_struct *grid_thing)
+int		fill_matched_l(t_x *ge)
 {
 	int		i;
 	int		j;
-	int		first_iteration_flag;
 
-
-	i = grid_thing->y_pos;
-	j = grid_thing->x_pos;
-	first_iteration_flag = 1;
-	while (grid_thing->grid[i] && (grid_thing->grid_size - i) >= 3)
+	i = ge->y_pos;
+	j = ge->x_pos;
+	while (ge->grid[i] && (ge->grid_size - i) >= 3)
 	{
-		if (first_iteration_flag)
-			first_iteration_flag = 0;
-		else
-			j = 0;
-		while (grid_thing->grid[i][j] && (grid_thing->grid_size - j) >= 2)
+		while (ge->grid[i][j] && (ge->grid_size - j) >= 2)
 		{
-			if (grid_thing->grid[i][j] == '.' && grid_thing->grid[i + 1][j] == '.' &&
-				grid_thing->grid[i + 2][j] == '.' && grid_thing->grid[i + 2][j + 1] == '.')
+			if (ge->grid[i][j] == '.' && ge->grid[i + 1][j] == '.' &&
+				ge->grid[i + 2][j] == '.' && ge->grid[i + 2][j + 1] == '.')
 			{
-				grid_thing->grid[i][j] = grid_thing->priority;
-				grid_thing->grid[i + 1][j] = grid_thing->priority;
-				grid_thing->grid[i + 2][j] = grid_thing->priority;
-				grid_thing->grid[i + 2][j + 1] = grid_thing->priority;
-				grid_thing->x_pos = j;
-				grid_thing->y_pos = i;
+				ge->grid[i][j] = ge->priority;
+				ge->grid[i + 1][j] = ge->priority;
+				ge->grid[i + 2][j] = ge->priority;
+				ge->grid[i + 2][j + 1] = ge->priority;
+				ge->x_pos = j;
+				ge->y_pos = i;
 				return (1);
 			}
 			j++;
@@ -83,34 +70,26 @@ int		fill_matched_l(grid_struct *grid_thing)
 	return (0);
 }
 
-
-int		fill_matched_m(grid_struct *grid_thing)
+int		fill_matched_m(t_x *ge)
 {
 	int		i;
 	int		j;
-	int		first_iteration_flag;
 
-
-	i = grid_thing->y_pos;
-	j = grid_thing->x_pos;
-	first_iteration_flag = 1;
-	while (grid_thing->grid[i] && (grid_thing->grid_size - i) >= 2)
+	i = ge->y_pos;
+	j = ge->x_pos;
+	while (ge->grid[i] && (ge->grid_size - i) >= 2)
 	{
-		if (first_iteration_flag)
-			first_iteration_flag = 0;
-		else
-			j = 0;
-		while (grid_thing->grid[i][j] && (grid_thing->grid_size - j) >= 3)
+		while (ge->grid[i][j] && (ge->grid_size - j) >= 3)
 		{
-			if (grid_thing->grid[i][j + 2] == '.' && grid_thing->grid[i + 1][j] == '.' &&
-				grid_thing->grid[i + 1][j + 1] == '.' && grid_thing->grid[i + 1][j + 2] == '.')
+			if (ge->grid[i][j + 2] == '.' && ge->grid[i + 1][j] == '.' &&
+				ge->grid[i + 1][j + 1] == '.' && ge->grid[i + 1][j + 2] == '.')
 			{
-				grid_thing->grid[i][j + 2] = grid_thing->priority;
-				grid_thing->grid[i + 1][j] = grid_thing->priority;
-				grid_thing->grid[i + 1][j + 1] = grid_thing->priority;
-				grid_thing->grid[i + 1][j + 2] = grid_thing->priority;
-				grid_thing->x_pos = j;
-				grid_thing->y_pos = i;
+				ge->grid[i][j + 2] = ge->priority;
+				ge->grid[i + 1][j] = ge->priority;
+				ge->grid[i + 1][j + 1] = ge->priority;
+				ge->grid[i + 1][j + 2] = ge->priority;
+				ge->x_pos = j;
+				ge->y_pos = i;
 				return (1);
 			}
 			j++;
@@ -120,33 +99,26 @@ int		fill_matched_m(grid_struct *grid_thing)
 	return (0);
 }
 
-int		fill_matched_n(grid_struct *grid_thing)
+int		fill_matched_n(t_x *ge)
 {
 	int		i;
 	int		j;
-	int		first_iteration_flag;
-	int		size;
 
-	i = grid_thing->y_pos;
-	j = grid_thing->x_pos;
-	first_iteration_flag = 1;
-	while (grid_thing->grid[i] && (grid_thing->grid_size - i) >= 3)
+	i = ge->y_pos;
+	j = ge->x_pos;
+	while (ge->grid[i] && (ge->grid_size - i) >= 3)
 	{
-		if (first_iteration_flag)
-			first_iteration_flag = 0;
-		else
-			j = 0;
-		while (grid_thing->grid[i][j] && (grid_thing->grid_size - j) >= 2)
+		while (ge->grid[i][j] && (ge->grid_size - j) >= 2)
 		{
-			if (grid_thing->grid[i][j] == '.' && grid_thing->grid[i][j + 1] == '.' &&
-				grid_thing->grid[i + 1][j + 1] == '.' && grid_thing->grid[i + 2][j + 1] == '.')
+			if (ge->grid[i][j] == '.' && ge->grid[i][j + 1] == '.' &&
+				ge->grid[i + 1][j + 1] == '.' && ge->grid[i + 2][j + 1] == '.')
 			{
-				grid_thing->grid[i][j] = grid_thing->priority;
-				grid_thing->grid[i][j + 1] = grid_thing->priority;
-				grid_thing->grid[i + 1][j + 1] = grid_thing->priority;
-				grid_thing->grid[i + 2][j + 1] = grid_thing->priority;
-				grid_thing->x_pos = j;
-				grid_thing->y_pos = i;
+				ge->grid[i][j] = ge->priority;
+				ge->grid[i][j + 1] = ge->priority;
+				ge->grid[i + 1][j + 1] = ge->priority;
+				ge->grid[i + 2][j + 1] = ge->priority;
+				ge->x_pos = j;
+				ge->y_pos = i;
 				return (1);
 			}
 			j++;
@@ -156,33 +128,26 @@ int		fill_matched_n(grid_struct *grid_thing)
 	return (0);
 }
 
-int		fill_matched_o(grid_struct *grid_thing)
+int		fill_matched_o(t_x *ge)
 {
 	int		i;
 	int		j;
-	int		first_iteration_flag;
 
-
-	i = grid_thing->y_pos;
-	j = grid_thing->x_pos;
-	first_iteration_flag = 1;
-	while (grid_thing->grid[i] && (grid_thing->grid_size - i) >= 2)
+	i = ge->y_pos;
+	j = ge->x_pos;
+	while (ge->grid[i] && (ge->grid_size - i) >= 2)
 	{
-		if (first_iteration_flag)
-			first_iteration_flag = 0;
-		else
-			j = 0;
-		while (grid_thing->grid[i][j] && (grid_thing->grid_size - j) >= 3)
+		while (ge->grid[i][j] && (ge->grid_size - j) >= 3)
 		{
-			if (grid_thing->grid[i][j] == '.' && grid_thing->grid[i][j + 1] == '.' &&
-				grid_thing->grid[i][j + 2] == '.' && grid_thing->grid[i + 1][j] == '.')
+			if (ge->grid[i][j] == '.' && ge->grid[i][j + 1] == '.' &&
+				ge->grid[i][j + 2] == '.' && ge->grid[i + 1][j] == '.')
 			{
-				grid_thing->grid[i][j] = grid_thing->priority;
-				grid_thing->grid[i][j + 1] = grid_thing->priority;
-				grid_thing->grid[i][j + 2] = grid_thing->priority;
-				grid_thing->grid[i + 1][j] = grid_thing->priority;
-				grid_thing->x_pos = j;
-				grid_thing->y_pos = i;
+				ge->grid[i][j] = ge->priority;
+				ge->grid[i][j + 1] = ge->priority;
+				ge->grid[i][j + 2] = ge->priority;
+				ge->grid[i + 1][j] = ge->priority;
+				ge->x_pos = j;
+				ge->y_pos = i;
 				return (1);
 			}
 			j++;
