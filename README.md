@@ -7,5 +7,5 @@ In command line
 
 make
 
-./fillit  ./testfiles/valid_sample.fillit
+./fillit  testfiles/valid_sample.fillit
 
