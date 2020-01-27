@@ -71,6 +71,17 @@ char			**rm_recurse(t_x *ge, t_et *current, t_et *head)
 
 char			**solve_plz(t_x *ge, t_et *current, t_et *head)
 {
+
+	printf("TOP\n");
+	printf("current->priority:%c\n", current->priority);
+	printf("current->piece_identifier: %c\n", current->piece_identifier);
+	printf("grid_thing->x_pos:%d\n", ge->x_pos);
+	printf("grid_thing->y_pos:%d\n", ge->y_pos);
+	printf("current->x_pos:%d\n", current->x_pos);
+	printf("current->y_pos:%d\n", current->y_pos);
+	grid_print(ge->grid);
+	printf("\n");
+
 	if (grid_upgrade_check(ge, current) == 1)
 		return (grid_upgrade_recurse(ge, head));
 	init_variables(ge, current);

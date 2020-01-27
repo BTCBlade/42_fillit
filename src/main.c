@@ -40,7 +40,6 @@ int			main(int argc, char **argv)
 		tetrimino_list = head->next;
 		free(head);
 		head = tetrimino_list;
-		printf("howmanytimes\n");
 	}
 	return (0);
 }
